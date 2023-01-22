@@ -211,7 +211,7 @@ def showtables(db): #Fonction pour afficher les tables dans une base de donnée
 sessdb=''
 print('----------------------------------------------------------------------------')
 print("|                                                                          |")
-print("|                             r00ted-DATABASE                              |")
+print("|                             Lyazid-DATABASE                              |")
 print("|                                                                          |")
 print("|                               version 1.0                                |")
 print("|                                                                          |")
@@ -222,7 +222,7 @@ sess=''
 
 
 while(True):
-    cmd=str(input('r00ted-db > '+sessdb))
+    cmd=str(input('Lyazid-db > '+sessdb))
 
     if cmd =='':
         continue
@@ -286,8 +286,14 @@ while(True):
 
             print("Commande incomplete")
 
-
-
+    elif cmd=='help':
+        print('')
+        print('Commandes : ')
+        print('')
+        print("- 'affiche les databases', 'affiche les db', 'show db' : permet d'afficher les bases de données")
+        print('')
+        print("- 'crée database madatabase', 'create database madatabase' : permet de créer une base de données")
+        print('')
     elif cmd == 'exit':
         print("A la prochaine bg ;)")
         break
