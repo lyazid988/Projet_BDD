@@ -1,6 +1,7 @@
 import os
 
-def conv():
+def conv(): #Fonction qui convertie les données dans le fichier test.txt (qui contient le nom des bases de données crées), en liste, pour pouvoir les utiliser dans la fonction d'affichage des bases de données
+
     file1 = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/test.txt", "r")
     Lines = file1.readlines()
     liste = []
@@ -8,7 +9,49 @@ def conv():
       liste.append(line.strip())
     file1.close()
     return liste
-def verifie_table(db,table):
+
+
+def createdb(nom): #Fonction pour créer une base de donnée
+
+    os.system("mkdir /home/r00ted/Desktop/Projets_Python/Base_de_donnée/databases/"+nom)
+
+    file1 = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/databases/"+nom+"/tables.txt", "a")
+    file1.close()
+
+    file2 = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/test.txt", "a")
+
+    file2.write(nom+'\n')
+
+    file2.close()
+
+    print('La base de donnée '+nom+' à été créer avec succès.')
+
+def printdb(): #Fonction pour afficher les base de données
+ mydb = conv()
+ print("---------------------------")
+ print("|   Mes bases de données  |")
+ print("---------------------------")
+ for i in range(0,len(mydb)):
+    s = ""
+    for j in range(0,25-len(mydb[i])):
+      s = s+" "
+    print("|                         |")
+    print("|"+mydb[i]+s+"|")
+ print("|                         |")  
+ print("---------------------------")
+
+def createtable(cmd,db): #Fonction pour créer une table
+    if db == '':
+     print("aucune base de données n'est selectionner")
+    else:
+     print(db)
+     print(str((cmd.split()[2].split(":"))[0]))
+     file2 = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/databases/"+db+"/table_"+str(cmd.split()[2])+".txt", "a")
+     file3 = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/databases/"+db+"/tables.txt", "a")
+     file2.write(cmd.split()[3][1:-1]+'\n')
+     file3.write(cmd.split()[2]+"\n")
+
+def verifie_table(db,table): #Fonction pour verifier si une table existe dans une base de donnée
 
  c=[]
  filer = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/databases/"+db+"/tables.txt", 'r')
@@ -19,10 +62,32 @@ def verifie_table(db,table):
  else:
    return False
 
-def selectet(db,table):
+def insert(db,table,ent,val): #Fonction pour inserer des données dans une table
+   
+   filew = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/databases/"+db+"/table_"+table+".txt", 'a')
+   
+   filer = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/databases/"+db+"/table_"+table+".txt", 'r')
+   
+   c=[]
+
+   for k in filer.readlines()[0][0:-1].split(','):
+
+      if k.split(";")[0] in ent:
+
+         c.append(val[ent.index(k.split(";")[0])])
+
+      else:
+
+         c.append('NULL')
+
+   filew.write(c)
+   filew.close()
+   filer.close()
+
+
+def selectet(db,table): #Fonction pour faire un select * d'une table
  file = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/databases/"+db+"/table_"+table+".txt", 'r')
  m=[]
- 
  for k in file.readlines():
     m.append(k[:-1])
 
@@ -37,6 +102,7 @@ def selectet(db,table):
     s=''
  c=c+'|'
  d=''
+
  for h in range(0,len(c)):
     d=d+'-'
 
@@ -56,7 +122,9 @@ def selectet(db,table):
         z=z+x
     print(z+'|')
     print(d)
-def selectse(db,table,li):
+
+def selectse(db,table,li): #Fonction pour selectionner que des elements dans une table
+
  file = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/databases/"+db+"/table_"+table+".txt", 'r')
 
  m=[]
@@ -114,55 +182,8 @@ def selectse(db,table,li):
     print(z+'|')
     print(d)
 
-def createtable(cmd,db):
-    if db == '':
-     print("aucune base de données n'est selectionner")
-    else:
-     print(db)
-     print(str((cmd.split()[2].split(":"))[0]))
-     file2 = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/databases/"+db+"/table_"+str(cmd.split()[2])+".txt", "a")
-     file3 = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/databases/"+db+"/tables.txt", "a")
-     file2.write(cmd.split()[3][1:-1]+'\n')
-     file3.write(cmd.split()[2]+"\n")
 
-def insert(db,table,ent,val):
-   
-   filew = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/databases/"+db+"/table_"+table+".txt", 'a')
-   
-   filer = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/databases/"+db+"/table_"+table+".txt", 'r')
-   
-   c=[]
-
-   for k in filer.readlines()[0][0:-1].split(','):
-
-      if k.split(";")[0] in ent:
-
-         c.append(val[ent.index(k.split(";")[0])])
-
-      else:
-
-         c.append('NULL')
-
-   filew.write(c)
-   filew.close()
-   filer.close()
-
-def createdb(nom):
-
-    os.system("mkdir /home/r00ted/Desktop/Projets_Python/Base_de_donnée/databases/"+nom)
-
-    file1 = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/databases/"+nom+"/tables.txt", "a")
-    file1.close()
-
-    file2 = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/test.txt", "a")
-
-    file2.write(nom+'\n')
-
-    file2.close()
-
-    print('La base de donnée '+nom+' à été créer avec succès.')
-
-def showtables(db):
+def showtables(db): #Fonction pour afficher les tables dans une base de donnée
 
  file = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/databases/"+db+"/tables.txt", 'r')
 
@@ -187,23 +208,10 @@ def showtables(db):
     print(m)
  print(j)
     
-def printdb():
- mydb = conv()
- print("---------------------------")
- print("|   Mes bases de données  |")
- print("---------------------------")
- for i in range(0,len(mydb)):
-    s = ""
-    for j in range(0,25-len(mydb[i])):
-      s = s+" "
-    print("|                         |")
-    print("|"+mydb[i]+s+"|")
- print("|                         |")  
- print("---------------------------")
 sessdb=''
 print('----------------------------------------------------------------------------')
 print("|                                                                          |")
-print("|                             R00ted-DATABASE                              |")
+print("|                             r00ted-DATABASE                              |")
 print("|                                                                          |")
 print("|                               version 1.0                                |")
 print("|                                                                          |")
@@ -211,6 +219,8 @@ print("|                 Projet BDD : Campus YNOV B3 Cybersécurité            
 print("|                                                                          |")
 print('----------------------------------------------------------------------------')
 sess=''
+
+
 while(True):
     cmd=str(input('r00ted-db > '+sessdb))
 
