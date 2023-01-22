@@ -1,0 +1,1 @@
+id;int,nom;varchar,prénom;varchar

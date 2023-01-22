@@ -1,0 +1,5 @@
+id;int,nom;varchar,prénom;varchar,age;int
+100,bahajjoub,lyazid,24
+100,bahajjoub,lyazid,25
+100,bahajjoub,lyazid,26
+100,bahajjoub,lyazid,24
