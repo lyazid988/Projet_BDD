@@ -4,5 +4,7 @@
 
 
 ```python
-mkdir -p .github/workflows
+import os
+
+f = print('test')
 ```
