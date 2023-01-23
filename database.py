@@ -211,7 +211,7 @@ def showtables(db): #Fonction pour afficher les tables dans une base de donnée
 sessdb=''
 print('----------------------------------------------------------------------------')
 print("|                                                                          |")
-print("|                             Lyazid-DATABASE                              |")
+print("|                                  PyBDD                                   |")
 print("|                                                                          |")
 print("|                               version 1.0                                |")
 print("|                                                                          |")
@@ -222,7 +222,7 @@ sess=''
 
 
 while(True):
-    cmd=str(input('Lyazid-db > '+sessdb))
+    cmd=str(input('PyBDD > '+sessdb))
 
     if cmd =='':
         continue
