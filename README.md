@@ -7,12 +7,10 @@ Mon projet PyBDD est un système de gestion de base de donnée que j'ai coder de
 ## Sommaire:
 
 ### I - Conception et code de PyBDD
-
-#### 1- Conception d'un modele de base de donnée (Fonctionnelle)
    
-#### 2- Conception des méthodes et fonctions de manipulation des donnée (Fonctionnelle)
+#### 1- Conception des méthodes et fonctions de manipulation des donnée (Fonctionnelle)
    
-#### 3 - Conception de la notion utilisateurs, droits et sessions (en cours):
+#### 2- Conception de la notion utilisateurs, droits et sessions (en cours):
    
 ### II - Exploitation et manipulation des données à distance (en cours):
 
@@ -24,4 +22,6 @@ Mon projet PyBDD est un système de gestion de base de donnée que j'ai coder de
 
 
 ## I - Conception et code de PyBDD
+
+### 1- 
 
