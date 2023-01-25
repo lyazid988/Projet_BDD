@@ -4,6 +4,8 @@
 
 Mon projet PyBDD est un système de gestion de base de donnée que j'ai coder en Python. L'idée que j'ai eu de concevoir et coder un système de gestion BDD, est pour un principal but d'apprendre et decouvrir son fonctionnement, et ainsi, me poser des questions notamment sur comment le securisé. Ensuite, question d'avoir plus de matière en terme de sécurité, j'ai decider de mettre mon système BDD python en tant que serveur, pour pouvoir y acceder à travers le web (avec un client php), et donc, je me metterai en défi d'etre capable de fournir une solution client/serveur fonctionnelle et sécurisée pour pouvoir exploiter et manipuler mes données à distance. Le systeme est installer sur ma machine virtuelle aws attribuée lors de la seance du 24/01.
 
+Pour tester : J'ai installer PyBDD sur la machine 54.234.74.208 aws fournie dans la seance securité OS du 24/01
+
 ## Sommaire:
 
 ### I - Conception et code de PyBDD   
