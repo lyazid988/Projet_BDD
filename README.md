@@ -21,6 +21,7 @@ Pour tester : J'ai installer PyBDD sur la machine 54.234.74.208 aws fournie dans
 ##### 1.5- Fonction verification de table
 ##### 1.6- Fonction d'insertion
 ##### 1.7- Fonction de selection
+##### 1.8- Fonction de condition (en cours)
 
 #### 2- Conception de la notion utilisateurs, droits et sessions (en cours):
 
