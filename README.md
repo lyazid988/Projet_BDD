@@ -9,6 +9,11 @@ Pour tester : J'ai installer PyBDD sur la machine 54.234.74.208 aws fournie dans
 ## Sommaire:
 
 ### I - Conception et code de PyBDD   
+La conception logicielle de PyBDD est très simple. J'ai utiliser principalement deux concepts sur Python, qui m'ont été très utiles, on a :
+
+La manipulation des fichiers : avec la classe file sur python, j'ai pu generer et ecrire sur des fichiers .txt, pour hiearchiser et remplir mes bases de données.
+
+Le traitement du texte : J'ai utiliser la fonction split() sur python, qui est une fonction qui permet de diviser une chaine de caractère
 
 #### 1- Conception des méthodes et fonctions de manipulation des donnée (Fonctionnelle)
 
