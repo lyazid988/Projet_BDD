@@ -21,9 +21,11 @@ Mon projet PyBDD est un système de gestion de base de donnée que j'ai coder en
 ##### 1.7- Fonction de selection
 ##### 1.8- Fonction de condition (en cours)
 
-#### 2- Conception de la notion utilisateurs, droits et sessions (en cours):
+#### 2- Cryptage des donnnées (en cours)
+#### 3- Conception de la notion utilisateurs, droits et sessions (en cours)
 
-### II - Exploitation et manipulation des données à distance (en cours):
+
+### II - Exploitation et manipulation des données à distance (en cours)
 
 #### 1- Création d'un serveur de base de donnée en python
 
