@@ -9,24 +9,6 @@ Mon projet PyBDD est un système de gestion de base de donnée que j'ai coder en
 ### I - Conception et code de PyBDD   
 
 #### 1- Conception des méthodes et fonctions de manipulation des donnée (Presque finie)
-
-##### 1.1- Fonction de création d'une base de donnée (Fonctionnelle)
-##### 1.2- Fonction d'affichage des bases de données (Fonctionnelle)
-
-##### 1.3- Fonction de création d'une table (Fonctionnelle)
-
-
-##### 1.4- Fonction d'affichage de tables (Fonctionnelle)
-
-
-##### 1.5- Fonction verification de table (Fonctionnelle)
-
-##### 1.6- Fonction d'insertion (Fonctionnelle)
-
-##### 1.7- Fonction de selection (Fonctionnelle)
-
-##### 1.8- Fonction de condition (en cours)
-
 #### 2- Cryptage des donnnées (en cours)
 #### 3- Conception de la notion utilisateurs, droits et sessions (en cours)
 
