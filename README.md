@@ -250,4 +250,4 @@ def selectse(db,table,li): #Fonction pour selectionner que des elements dans une
     print(d)
 
 ```
-<img src=img.jpg>
+<img src=img1.png>
