@@ -2,27 +2,18 @@
 
 ## Introduction :
 
-Mon projet PyBDD est un système de gestion de base de donnée que j'ai coder en Python. L'idée que j'ai eu de concevoir et coder un système de gestion BDD, est pour un principal but d'apprendre et decouvrir son fonctionnement, et ainsi, me poser des questions notamment sur comment le securisé. Ensuite, question d'avoir plus de matière en terme de sécurité, j'ai decider de mettre mon système BDD python en tant que serveur, pour pouvoir y acceder à travers le web (avec un client php), et donc, je me metterai en défi d'etre capable de fournir une solution client/serveur fonctionnelle et sécurisée pour pouvoir exploiter et manipuler mes données à distance.
+Mon projet PyBDD est un système de gestion de base de donnée que j'ai coder en Python. L'idée que j'ai eu de concevoir et coder un système de gestion BDD, est pour un principal but d'apprendre et decouvrir son fonctionnement, et ainsi, me poser des questions notamment sur comment le securisé. Ensuite, question d'avoir plus de matière en terme de sécurité, j'ai decider de mettre mon système BDD python en tant que serveur, pour pouvoir l'exploiter et manipuler mes données à travers le web (avec un client php), et donc, je me metterai en défi d'etre capable de fournir une solution client/serveur BDD fonctionnelle et sécurisée.
 
 ## Sommaire:
 
 ### I - Conception et code de PyBDD   
 
-#### 1- Conception des méthodes et fonctions de manipulation des donnée (Fonctionnelle)
+#### 1- Conception des méthodes et fonctions de manipulation des donnée (Presque finie)
+#### 2- Cryptage des donnnées (en cours)
+#### 3- Conception de la notion utilisateurs, droits et sessions (en cours)
 
-##### 1.1- Fonction de création d'une base de donnée
-##### 1.2- Fonction d'affichage des bases de données
-##### 1.3- Fonction de création d'une table
 
-##### 1.4- Fonction d'affichage de tables
-
-##### 1.5- Fonction verification de table
-##### 1.6- Fonction d'insertion
-##### 1.7- Fonction de selection
-
-#### 2- Conception de la notion utilisateurs, droits et sessions (en cours):
-
-### II - Exploitation et manipulation des données à distance (en cours):
+### II - Exploitation et manipulation des données à distance (en attente)
 
 #### 1- Création d'un serveur de base de donnée en python
 
@@ -32,7 +23,11 @@ Mon projet PyBDD est un système de gestion de base de donnée que j'ai coder en
 
 
 ## I - Conception et code de PyBDD
+La conception logicielle de PyBDD est très simple. J'ai utiliser principalement deux concepts sur Python, qui m'ont été très utiles, on a :
 
+**La manipulation des fichiers :** avec la classe file sur python, j'ai pu generer et ecrire sur des fichiers .txt, pour hiearchiser et remplir mes bases de données.
+
+**Le traitement du texte :** J'ai utiliser la fonction split() sur python, qui est une fonction qui permet de diviser une chaine de caractère selon l'element de division choisie (espace, virgule, point virgule, slash...etc). Cela m'as été utile pour traiter les commandes de PyBDD
 ### 1- Conception des méthodes et fonctions de manipulation des donnée (Fonctionnelle)
 #### 1.1- Fonction de création d'une base de donnée
 ```python
@@ -255,3 +250,4 @@ def selectse(db,table,li): #Fonction pour selectionner que des elements dans une
     print(d)
 
 ```
+<img src=img.jpg>
