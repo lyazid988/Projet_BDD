@@ -256,3 +256,5 @@ def selectse(db,table,li): #Fonction pour selectionner que des elements dans une
 
 ##### Selection des elements dans une table
 <img src=img2.png>
+
+## Installation pour tester 
