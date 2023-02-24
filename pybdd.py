@@ -1,8 +1,11 @@
 import os
+import subprocess
+d = str(subprocess.check_output('pwd'))[2:-3]
+print(d)
 
 def conv(): #Fonction qui convertie les données dans le fichier test.txt (qui contient le nom des bases de données crées), en liste, pour pouvoir les utiliser dans la fonction d'affichage des bases de données
 
-    file1 = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/Projet_BDD/test.txt", "r")
+    file1 = open(d+"/test.txt", "r")
     Lines = file1.readlines()
     liste = []
     for line in Lines:
@@ -13,12 +16,12 @@ def conv(): #Fonction qui convertie les données dans le fichier test.txt (qui c
 
 def createdb(nom): #Fonction pour créer une base de donnée
 
-    os.system("mkdir /home/r00ted/Desktop/Projets_Python/Base_de_donnée/Projet_BDD/databases/"+nom)
+    os.system("mkdir "+d+"/databases/"+nom)
 
-    file1 = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/Projet_BDD/databases/"+nom+"/tables.txt", "a")
+    file1 = open(d+"/databases/"+nom+"/tables.txt", "a")
     file1.close()
 
-    file2 = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/Projet_BDD/test.txt", "a")
+    file2 = open(d+"/test.txt", "a")
 
     file2.write(nom+'\n')
 
@@ -44,17 +47,15 @@ def createtable(cmd,db): #Fonction pour créer une table
     if db == '':
      print("aucune base de données n'est selectionner")
     else:
-     print(db)
-     print(str((cmd.split()[2].split(":"))[0]))
-     file2 = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/Projet_BDD/databases/"+db+"/table_"+str(cmd.split()[2])+".txt", "a")
-     file3 = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/Projet_BDD/databases/"+db+"/tables.txt", "a")
-     file2.write(cmd.split()[3][1:-1]+'\n')
+     file2 = open(d+"/databases/"+db+"/table_"+str(cmd.split()[2])+".txt", "a")
+     file3 = open(d+"/databases/"+db+"/tables.txt", "a")
+     file2.write(cmd.split()[3]+'\n')
      file3.write(cmd.split()[2]+"\n")
 
 def verifie_table(db,table): #Fonction pour verifier si une table existe dans une base de donnée
 
  c=[]
- filer = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/Projet_BDD/databases/"+db+"/tables.txt", 'r')
+ filer = open(d+"/databases/"+db+"/tables.txt", 'r')
  for j in filer.readlines():
    c.append(j[0:-1])
  if table in c:
@@ -64,9 +65,9 @@ def verifie_table(db,table): #Fonction pour verifier si une table existe dans un
 
 def insert(db,table,ent,val): #Fonction pour inserer des données dans une table
    
-   filew = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/Projet_BDD/databases/"+db+"/table_"+table+".txt", 'a')
+   filew = open(d+"/databases/"+db+"/table_"+table+".txt", 'a')
    
-   filer = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/Projet_BDD/databases/"+db+"/table_"+table+".txt", 'r')
+   filer = open(d+"/databases/"+db+"/table_"+table+".txt", 'r')
    
    c=[]
 
@@ -86,7 +87,7 @@ def insert(db,table,ent,val): #Fonction pour inserer des données dans une table
 
 
 def selectet(db,table): #Fonction pour faire un select * d'une table
- file = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/Projet_BDD/databases/"+db+"/table_"+table+".txt", 'r')
+ file = open(d+"/databases/"+db+"/table_"+table+".txt", 'r')
  m=[]
  for k in file.readlines():
     m.append(k[:-1])
@@ -125,7 +126,7 @@ def selectet(db,table): #Fonction pour faire un select * d'une table
 
 def selectse(db,table,li): #Fonction pour selectionner que des elements dans une table
 
- file = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/Projet_BDD/databases/"+db+"/table_"+table+".txt", 'r')
+ file = open(d+"/databases/"+db+"/table_"+table+".txt", 'r')
 
  m=[]
  a=[]
@@ -185,7 +186,7 @@ def selectse(db,table,li): #Fonction pour selectionner que des elements dans une
 
 def showtables(db): #Fonction pour afficher les tables dans une base de donnée
 
- file = open("/home/r00ted/Desktop/Projets_Python/Base_de_donnée/Projet_BDD/databases/"+db+"/tables.txt", 'r')
+ file = open(d+"/databases/"+db+"/tables.txt", 'r')
 
  c='|   Tables de "'+db+'"   |'
  j = ""
@@ -246,7 +247,7 @@ while(True):
     elif ' '.join(cmd.split()[0:2]) in ('crée ba','crée db','create database','create db'):
         createdb(cmd.split()[2])
 
-    elif cmd.split()[0] in ('create','crée'):
+    elif cmd.split()[0] in ('create','crée') and cmd.split()[1] == 'table':
           if sess == '':
             print("Aucune base de donnée n'est selectionnée")
           else:
