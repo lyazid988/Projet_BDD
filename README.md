@@ -258,3 +258,8 @@ def selectse(db,table,li): #Fonction pour selectionner que des elements dans une
 <img src=img2.png>
 
 ## Installation pour tester 
+```sh
+git clone https://github.com/lyazid988/Projet_BDD
+cd Projet_BDD
+python3 pybdd.py
+```
